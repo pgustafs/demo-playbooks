@@ -10,6 +10,9 @@
   tasks:
     - name: "Sync {{ repo }} repository"
       redhat.satellite.repository_sync:
+        username: '{{ username }}'
+        password: '{{ password }}'
+        server_url: '{{ server_url }}'
         repository: "{{ repo }}"
         product: "{{ product }}"
         organization: "{{ organization }}"
