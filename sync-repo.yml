@@ -1,0 +1,15 @@
+---
+- name: Sync RHEL repositories from the CDN
+  hosts: localhost
+  vars:
+    product:
+    repo: 
+    organization: 
+  become: false
+
+  tasks:
+    - name: "Sync {{ repo }} repository"
+      redhat.satellite.repository_sync:
+        repository: "{{ repo }}"
+        product: "{{ product }}"
+        organization: "{{ organization }}"
