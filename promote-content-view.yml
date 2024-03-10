@@ -1,0 +1,18 @@
+---
+- name: Promote content view
+  hosts: localhost
+  vars:
+    content_view:
+    organization:
+    lifecycle_environments:
+  become: false
+
+  tasks:
+    - name: "Promote the {{ content_view }} content view to lifecycle environments  {{ lifecycle_environments }}"
+      redhat.satellite.content_view_version:
+        username: "{{ username }}"
+        password: "{{ password }}"
+        server_url: "{{ server_url }}"
+        content_view: "{{ content_view }}"
+        organization: "{{ organization }}"
+        lifecycle_environments: "{{ lifecycle_environments }}"

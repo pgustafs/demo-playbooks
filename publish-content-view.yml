@@ -1,5 +1,5 @@
 ---
-- name: Publish content views
+- name: Publish content view
   hosts: localhost
   vars:
     content_view:
