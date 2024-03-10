@@ -1,0 +1,16 @@
+---
+- name: Publish content views
+  hosts: localhost
+  vars:
+    content_view 
+    organization: 
+  become: false
+
+  tasks:
+    - name: "Publish the {{ content_view }} content view"
+      redhat.satellite.content_view_version:
+        username: "{{ username }}"
+        password: "{{ password }}"
+        server_url: "{{ server_url }}"
+        content_view: "{{ content_view }}"
+        organization: "{{ organization }}"
