@@ -3,16 +3,17 @@
   hosts: localhost
   vars:
     product:
-    repo: 
+    repo_list: 
     organization: 
   become: false
 
   tasks:
-    - name: "Sync {{ repo }} repository"
+    - name: "Sync repositories"
       redhat.satellite.repository_sync:
         username: '{{ username }}'
         password: '{{ password }}'
         server_url: '{{ server_url }}'
-        repository: "{{ repo }}"
+        repository: "{{ item }}"
         product: "{{ product }}"
         organization: "{{ organization }}"
+      loop: "{{ repo_list }}"
